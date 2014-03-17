@@ -28,6 +28,9 @@ Accessing your `rinfo.json` page will product something like this:
 
 It's as easy as that!
 
+**NOTE:** For now, the `Deployed At` value is being estimated as the
+timestamp on the most latest commit.
+
 ## Installation
 
 To add `rinfo` to your Rails application, add the `rinfo` gem to your `Gemfile`:
