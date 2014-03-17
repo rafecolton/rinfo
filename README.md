@@ -9,3 +9,5 @@ Add the `rinfo` gem to your `Gemfile`:
 ```ruby
 gem 'rinfo'
 ```
+
+## TODO: Fill This Out
