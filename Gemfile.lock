@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rinfo (0.0.1)
+    rinfo (0.1.0)
       git
       rails (>= 3)
 
