@@ -2,7 +2,7 @@
 AllCops:
   Excludes:
     - bin/rails
-    - vendor/bundle
+    - vendor/bundle/**/*
 
 Documentation:
   Enabled: false
