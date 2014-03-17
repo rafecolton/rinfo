@@ -1,6 +1,6 @@
 # Rinfo
 
-[![Build Status](https://travis-ci.org/rafecolton/rinfo.png?branch=master)](https://travis-ci.org/rafecolton/rinfo)
+[![Gem Version](https://badge.fury.io/rb/rinfo.png)](http://badge.fury.io/rb/rinfo) [![Build Status](https://travis-ci.org/rafecolton/rinfo.png?branch=master)](https://travis-ci.org/rafecolton/rinfo)
 
 Usage:
 
