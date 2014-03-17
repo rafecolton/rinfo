@@ -4,7 +4,7 @@ require 'rails'
 require 'rinfo'
 require 'action_controller'
 
-class RinfoApp
+class Rinfo
   class Application < Rails::Application
     config.encoding = 'utf-8'
     config.time_zone = 'Pacific Time (US & Canada)'

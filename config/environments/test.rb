@@ -1,4 +1,4 @@
-RinfoApp::Application.configure do
+Rinfo::Application.configure do
   config.cache_classes = true
 
   # Do not eager load code on boot. This avoids loading your whole application

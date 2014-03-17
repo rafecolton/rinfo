@@ -3,7 +3,7 @@ PATH
   specs:
     rinfo (0.0.1)
       git
-      rails (~> 4.0.4)
+      rails (>= 3)
 
 GEM
   remote: https://rubygems.org/

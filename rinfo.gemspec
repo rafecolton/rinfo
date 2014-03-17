@@ -1,9 +1,7 @@
 # coding: utf-8
 
-%w(lib app config).each do |dir|
-  path = File.expand_path("../#{dir}", __FILE__)
-  $LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
-end
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 $TOP = File.expand_path('..', __FILE__)
 
@@ -31,6 +29,6 @@ Gem::Specification.new do |gem|
   end
   gem.add_development_dependency 'pry' unless RUBY_PLATFORM == 'java'
 
-  gem.add_dependency 'rails', '~> 4.0.4'
+  gem.add_dependency 'rails', '>= 3'
   gem.add_dependency 'git'
 end
