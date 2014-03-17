@@ -12,6 +12,9 @@ describe RinfoController, type: :controller do
     # initialize a git repository
     git = Git.init(Dir.pwd)
     FileUtils.touch("#{Dir.pwd}/initial-file.txt")
+    @name = 'Spec Ninja'
+    git.config('user.name', @name)
+    git.config('user.email', 'spec_ninja@example.com')
     git.add
     git.commit('initial commit')
 
@@ -22,8 +25,6 @@ describe RinfoController, type: :controller do
     # set the other things we're checking for
     @rev = git.revparse('HEAD')
     @date = git.log.first.date
-    @name = 'Spec Ninja'
-    git.config('user.name', @name)
   end
 
   after :all do
