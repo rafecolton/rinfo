@@ -9,19 +9,16 @@ class Rinfo
 
   class << self
     def inform!
-      if should_inform?
-        <<-RINFO.gsub(/^ {8}/, '')
-        {
-          "Deployed By": "#{author}",
-          "Deployed At": "#{date}",
-          "Rails Env": "#{env}",
-          "Branch": "#{branch}",
-          "Rev": "#{rev}"
-        }
-        RINFO
-      else
-        raise ActionController::RoutingError.new('Not Found')
-      end
+      fail ActionController::RoutingError 'Not Found' unless should_inform?
+      <<-RINFO.gsub(/^ {6}/, '')
+      {
+        "Deployed By": "#{author}",
+        "Deployed At": "#{date}",
+        "Rails Env": "#{env}",
+        "Branch": "#{branch}",
+        "Rev": "#{rev}"
+      }
+      RINFO
     end
 
     def should_inform?
