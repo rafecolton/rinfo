@@ -1,0 +1,7 @@
+---
+AllCops:
+  Excludes:
+    - bin/rails
+
+Documentation:
+  Enabled: false
