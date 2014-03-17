@@ -2,21 +2,38 @@
 
 require 'rinfo/engine'
 require 'git'
+require 'action_controller'
 
 class Rinfo
   autoload :VERSION, 'rinfo/version'
 
   class << self
-    def info
-      <<-RINFO.gsub(/^ {6}/, '')
-      {
-        "Deployed By": "#{author}",
-        "Deployed At": "#{date}",
-        "Rails Env": "#{Rails.env}",
-        "Branch": "#{branch}",
-        "Rev": "#{rev}"
-      }
-      RINFO
+    def inform!
+      if should_inform?
+        <<-RINFO.gsub(/^ {8}/, '')
+        {
+          "Deployed By": "#{author}",
+          "Deployed At": "#{date}",
+          "Rails Env": "#{env}",
+          "Branch": "#{branch}",
+          "Rev": "#{rev}"
+        }
+        RINFO
+      else
+        raise ActionController::RoutingError.new('Not Found')
+      end
+    end
+
+    def should_inform?
+      ([:all, env.to_sym] & env_blacklist).empty?
+    end
+
+    def env_blacklist
+      @env_blacklist ||= [:prod, :production]
+    end
+
+    def env_blacklist=(args)
+      @env_blacklist = [*args].map(&:to_sym)
     end
 
     private
@@ -27,6 +44,10 @@ class Rinfo
 
     def root
       Rails.root
+    end
+
+    def env
+      Rails.env
     end
 
     def author
