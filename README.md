@@ -55,9 +55,9 @@ something like this:
 
 ```ruby
 # config/initializers/rinfo.rb
-Rinfo.env_blacklist = :staging, :production
+Rinfo.env_blacklist = :prod, :production
 
-Rinfo.filename = 'rinfo'
+Rinfo.filename = 'rinfo.json'
 ```
 
 ### `env_blacklist`
@@ -76,19 +76,5 @@ your `RAILS_ENV`
 ### `filename`
 
 The `filename` attribute allows you to set the filename at which your
-release information is available.  The default value of `rinfo` will
+release information is available.  The default value of `rinfo.json` will
 mean your file is available at `/rinfo.json`.
-
-### `filetype`
-
-The `filetype` attribute determines the file extention of your release
-information.  The default value is `:json`
-
-In the following example, your release information will be available at
-`/_meta.txt`
-
-```ruby
-# config/initializers/rinfo.rb
-Rinfo.filename = '_meta'
-Rinfo.filetype = 'txt'
-```

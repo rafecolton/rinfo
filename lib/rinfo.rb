@@ -8,7 +8,7 @@ class Rinfo
   autoload :VERSION, 'rinfo/version'
 
   class << self
-    attr_writer :filename, :filetype
+    attr_writer :filename
 
     def inform!
       if should_inform?
@@ -31,11 +31,7 @@ class Rinfo
     end
 
     def filename
-      @filename ||= :rinfo
-    end
-
-    def filetype
-      @filetype ||= :json
+      @filename ||= 'rinfo.json'
     end
 
     private
