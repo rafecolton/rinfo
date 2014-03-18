@@ -2,6 +2,7 @@
 
 require 'tmpdir'
 require 'git'
+require 'time'
 
 describe RinfoController, type: :controller do
   before(:all) do
@@ -37,7 +38,7 @@ describe RinfoController, type: :controller do
   end
 
   let(:author) { @name }
-  let(:deploy_time) { "#{@date}" }
+  let(:deploy_time) { "#{@date.iso8601}" }
   let(:rails_env) { 'test' }
   let(:branch) { @branch_name }
   let(:rev) { @rev }
@@ -46,15 +47,13 @@ describe RinfoController, type: :controller do
   end
 
   def rinfo
-    <<-RINFO.gsub(/^ {4}/, '')
-    {
-      "Deployed By": "#{author}",
-      "Deployed At": "#{deploy_time}",
-      "Rails Env": "#{Rinfo.send(:env)}",
-      "Branch": "#{branch}",
-      "Rev": "#{rev}"
-    }
-    RINFO
+    JSON.pretty_generate(
+      deployed_by: author,
+      deployed_at: deploy_time,
+      rails_env: "#{Rinfo.send(:env)}",
+      branch: branch,
+      rev: rev
+    )
   end
 
   describe 'GET #info' do
