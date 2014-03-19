@@ -1,0 +1,5 @@
+---
+release:
+  tag: true
+
+# vim:ft=yaml
