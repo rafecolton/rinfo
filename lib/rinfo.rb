@@ -8,17 +8,14 @@ class Rinfo
   autoload :VERSION, 'rinfo/version'
 
   class << self
+    attr_writer :filename
+
     def inform!
-      fail ActionController::RoutingError 'Not Found' unless should_inform?
-      <<-RINFO.gsub(/^ {6}/, '')
-      {
-        "Deployed By": "#{author}",
-        "Deployed At": "#{date}",
-        "Rails Env": "#{env}",
-        "Branch": "#{branch}",
-        "Rev": "#{rev}"
-      }
-      RINFO
+      if should_inform?
+        JSON.pretty_generate(rinfo)
+      else
+        fail ActionController::RoutingError 'Not Found'
+      end
     end
 
     def should_inform?
@@ -33,7 +30,21 @@ class Rinfo
       @env_blacklist = [*args].map(&:to_sym)
     end
 
+    def filename
+      @filename ||= 'rinfo.json'
+    end
+
     private
+
+    def rinfo
+      {
+        deployed_by: author,
+        deployed_at: date,
+        rails_env: env,
+        branch: branch,
+        rev: rev
+      }
+    end
 
     def git
       @git ||= Git.open(root)

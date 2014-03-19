@@ -55,8 +55,12 @@ something like this:
 
 ```ruby
 # config/initializers/rinfo.rb
-Rinfo.env_blacklist = :staging, :production
+Rinfo.env_blacklist = :prod, :production
+
+Rinfo.filename = 'rinfo.json'
 ```
+
+### `env_blacklist`
 
 The `env_blacklist` attribute is a list of environments such that if it
 includes your `RAILS_ENV`, the `/rinfo.json` route will return a `404`
@@ -68,3 +72,9 @@ either a string or a symbol.  The default blacklist is `[:prod,
 **NOTE:** There is one special value `:all`, which, if included in your
 list, will prevent `rinfo.json` from showing up entirely, regardless of
 your `RAILS_ENV`
+
+### `filename`
+
+The `filename` attribute allows you to set the filename at which your
+release information is available.  The default value of `rinfo.json` will
+mean your file is available at `/rinfo.json`.
