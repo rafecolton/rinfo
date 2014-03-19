@@ -18,11 +18,11 @@ Accessing your `rinfo.json` page will product something like this:
 
 ```javascript
 {
-  Deployed By: "Rafe Colton",
-  Deployed At: "2014-03-17 15:18:35 -0700",
-  Rails Env: "development",
-  Branch: "master",
-  Rev: "018f44579795167c56066c013b4b18e196142ecb"
+  deployed_by: "Rafe Colton",
+  deployed_at: "2014-03-17 15:18:35 -0700",
+  rails_env: "development",
+  branch: "master",
+  rev: "018f44579795167c56066c013b4b18e196142ecb"
 }
 ```
 
