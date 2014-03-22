@@ -59,7 +59,8 @@ class Rinfo
     end
 
     def author
-      git.config('user.name')
+      name = git.config('user.name')
+      name.blank? ? git.log.first.author.name : name
     end
 
     def date

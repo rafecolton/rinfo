@@ -28,8 +28,18 @@ Accessing your `rinfo.json` page will product something like this:
 
 It's as easy as that!
 
-**NOTE:** For now, the `Deployed At` value is being estimated as the
-timestamp on the most latest commit.
+### A Note About Estimation
+
+It is not always the case that the release information above is
+available, so sometimes, it has to be estimated.  In addition, Rinfo
+does not make any assumptions about how you deploy your application, and
+not all deployment methods make it possible to inject your release
+information at deploy time.  Therefore, the following estimations are
+made at run time:
+
+* `deployed_by`: estimated as the git config `user.name`, or, if that is
+  not available, the author name on the most recent commit
+* `deployed_at`: estimated as timestamp of the most recent commit
 
 ## Installation
 
