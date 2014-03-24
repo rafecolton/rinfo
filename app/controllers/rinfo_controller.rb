@@ -5,7 +5,5 @@ class RinfoController < ApplicationController
 
   def info
     render json: Rinfo.inform!
-  rescue
-    render nothing: true, status: 404
   end
 end

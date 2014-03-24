@@ -2,7 +2,6 @@
 
 require 'rinfo/engine'
 require 'git'
-require 'action_controller'
 
 class Rinfo
   autoload :VERSION, 'rinfo/version'
@@ -14,7 +13,7 @@ class Rinfo
       if should_inform?
         JSON.pretty_generate(rinfo)
       else
-        fail ActionController::RoutingError 'Not Found'
+        fail ActionController::RoutingError, 'Not Found'
       end
     end
 

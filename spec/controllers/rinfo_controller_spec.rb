@@ -72,8 +72,9 @@ describe RinfoController, type: :controller do
       it 'does not display rinfo for blacklisted envs' do
         default_blacklist.each do |env|
           Rinfo.stub(:env).and_return(env.to_s)
-          get 'info', format: :json
-          response.status.should == 404
+          expect { get 'info', format: :json }.to raise_error(
+            ActionController::RoutingError
+          )
         end
       end
 
@@ -108,8 +109,9 @@ describe RinfoController, type: :controller do
       it 'does not display rinfo for any envs' do
         rails_envs.each do |env|
           Rinfo.stub(:env).and_return(env.to_s)
-          get 'info', format: :json
-          response.status.should == 404
+          expect { get 'info', format: :json }.to raise_error(
+            ActionController::RoutingError
+          )
         end
       end
     end
@@ -122,8 +124,9 @@ describe RinfoController, type: :controller do
       it 'does not display rinfo for blacklisted envs' do
         custom_blacklist.each do |env|
           Rinfo.stub(:env).and_return(env.to_s)
-          get 'info', format: :json
-          response.status.should == 404
+          expect { get 'info', format: :json }.to raise_error(
+            ActionController::RoutingError
+          )
         end
       end
 
