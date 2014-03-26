@@ -46,6 +46,7 @@ made at run time:
 To add `rinfo` to your Rails application, add the `rinfo` gem to your `Gemfile`:
 
 ```ruby
+# Gemfile
 gem 'rinfo'
 ```
 
