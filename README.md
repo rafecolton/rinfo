@@ -89,3 +89,9 @@ your `RAILS_ENV`
 The `filename` attribute allows you to set the filename at which your
 release information is available.  The default value of `rinfo.json` will
 mean your file is available at `/rinfo.json`.
+
+## Contributing
+
+0. Fork it
+0. Do your thing
+0. Submit a pull request
