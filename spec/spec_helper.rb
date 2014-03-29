@@ -10,7 +10,5 @@ require 'pry' unless RUBY_PLATFORM == 'java'
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'simplecov'
-require 'codeclimate-test-reporter'
 
-CodeClimate::TestReporter.start
 SimpleCov.start 'rails'
