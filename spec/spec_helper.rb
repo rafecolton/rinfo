@@ -9,3 +9,6 @@ require 'bundler/setup'
 require 'pry' unless RUBY_PLATFORM == 'java'
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'simplecov'
+
+SimpleCov.start 'rails'
