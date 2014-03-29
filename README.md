@@ -2,8 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/rinfo.png)](http://badge.fury.io/rb/rinfo)
 [![Build Status](https://travis-ci.org/rafecolton/rinfo.png?branch=master)](https://travis-ci.org/rafecolton/rinfo)
-[![Dependency Status](https://gemnasium.com/rafecolton/rinfo.png)](https://gemnasium.com/rafecolton/rinfo)
 [![Code Climate](https://codeclimate.com/github/rafecolton/rinfo.png)](https://codeclimate.com/github/rafecolton/rinfo)
+[![Dependency Status](https://gemnasium.com/rafecolton/rinfo.png)](https://gemnasium.com/rafecolton/rinfo)
 
 ## Usage
 

@@ -1,8 +1,7 @@
----
 language: ruby
 matrix:
   allow_failures:
-    - rvm: jruby-19mode
+  - rvm: jruby-19mode
 rvm:
 - 1.9.3
 - 2.0.0
@@ -10,4 +9,7 @@ rvm:
 notifications:
   email:
     recipients:
-      - r.colton@modcloth.com
+    - r.colton@modcloth.com
+env:
+  global:
+    secure: ArM/GYGmfw7OmEaFDLo3sXLb5NJZ9NJ2xsXpMYJeDhpMUmeGZiDsQLI+dQUmOvct8sxyAgZ254qfxSCj/1tqgupe1OLJZf5p1aRGv8hkvzU/xPgNT1tDXG4KdZp1fe6iyYHgXfZT/8p6seIG59Fx8CRWlW/T49y7KpELW8JHhME=
