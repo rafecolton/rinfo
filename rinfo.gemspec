@@ -29,6 +29,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec-rails'
   gem.add_development_dependency 'simplecov'
   gem.add_development_dependency 'sqlite3' unless RUBY_PLATFORM == 'java'
+  gem.add_development_dependency 'activerecord-jdbcsqlite3-adapter' if RUBY_PLATFORM == 'java'
 
   # dev/test deps, no jruby
   gem.add_development_dependency 'pry' unless RUBY_PLATFORM == 'java'
