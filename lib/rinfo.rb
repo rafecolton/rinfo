@@ -2,6 +2,7 @@
 
 require 'rinfo/engine'
 require 'git'
+require 'time'
 
 class Rinfo
   autoload :VERSION, 'rinfo/version'
@@ -63,7 +64,7 @@ class Rinfo
     end
 
     def date
-      git.log.first.date
+      git.log.first.date.iso8601
     end
 
     def branch

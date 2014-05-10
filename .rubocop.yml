@@ -1,8 +1,11 @@
 ---
 AllCops:
-  Excludes:
+  Exclude:
     - bin/rails
     - vendor/bundle/**/*
 
 Documentation:
   Enabled: false
+
+RegexpLiteral:
+  MaxSlashes: 0

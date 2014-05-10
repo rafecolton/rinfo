@@ -3,8 +3,6 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-$TOP = File.expand_path('..', __FILE__)
-
 require 'rinfo/version'
 
 Gem::Specification.new do |gem|
@@ -17,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.description     = 'Generates an rinfo.json page for your Rails app'
   gem.license         = 'MIT'
 
-  gem.files           = `git ls-files`.split($/)
+  gem.files           = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables     = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
   gem.bindir          = 'bin'
   gem.test_files      = gem.files.grep(%r{^spec/})
@@ -30,6 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rubocop'
   gem.add_development_dependency 'rspec-rails'
   gem.add_development_dependency 'simplecov'
+  gem.add_development_dependency 'sqlite3'
 
   # dev/test deps, no jruby
   gem.add_development_dependency 'pry' unless RUBY_PLATFORM == 'java'

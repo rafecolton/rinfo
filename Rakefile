@@ -13,7 +13,7 @@ require 'rspec/core/rake_task'
 
 desc 'Run rubocop'
 task :rubocop do
-  sh('rubocop --format simple'){ |ok, _| ok || abort }
+  sh('rubocop --format simple') { |ok, _| ok || abort }
 end
 
 RSpec::Core::RakeTask.new(:spec) do |t|
