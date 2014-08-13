@@ -6,6 +6,7 @@ require 'time'
 
 describe RinfoController, type: :controller do
   before(:all) do
+    ::MemoryCache.instance.clear
     # create temporary directory
     @tmpdir = Dir.mktmpdir
     Dir.chdir(@tmpdir)
