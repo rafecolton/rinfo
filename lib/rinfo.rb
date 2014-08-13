@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require 'rinfo/engine'
+require 'rinfo/cache'
 require 'git'
 require 'time'
 
