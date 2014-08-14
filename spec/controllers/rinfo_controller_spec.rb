@@ -29,6 +29,7 @@ describe RinfoController, type: :controller do
   end
 
   before(:each) do
+    ::MemoryCache.instance.clear
     Rinfo.stub(:root).and_return(@tmpdir)
   end
 
@@ -80,6 +81,7 @@ describe RinfoController, type: :controller do
 
       it 'displays rinfo for all envs not on the blacklist' do
         default_whitelist.each do |env|
+          ::MemoryCache.instance.clear
           Rinfo.stub(:env).and_return(env.to_s)
           get 'info', format: :json
           response.body.should == rinfo
@@ -94,6 +96,7 @@ describe RinfoController, type: :controller do
 
       it 'displays rinfo for all envs' do
         rails_envs.each do |env|
+          ::MemoryCache.instance.clear
           Rinfo.stub(:env).and_return(env.to_s)
           get 'info', format: :json
           response.body.should == rinfo
@@ -108,6 +111,7 @@ describe RinfoController, type: :controller do
 
       it 'does not display rinfo for any envs' do
         rails_envs.each do |env|
+          ::MemoryCache.instance.clear
           Rinfo.stub(:env).and_return(env.to_s)
           expect { get 'info', format: :json }.to raise_error(
             ActionController::RoutingError
@@ -123,6 +127,7 @@ describe RinfoController, type: :controller do
 
       it 'does not display rinfo for blacklisted envs' do
         custom_blacklist.each do |env|
+          ::MemoryCache.instance.clear
           Rinfo.stub(:env).and_return(env.to_s)
           expect { get 'info', format: :json }.to raise_error(
             ActionController::RoutingError
@@ -132,6 +137,7 @@ describe RinfoController, type: :controller do
 
       it 'displays rinfo for non-blacklisted envs' do
         (rails_envs - custom_blacklist).each do |env|
+          ::MemoryCache.instance.clear
           Rinfo.stub(:env).and_return(env.to_s)
           get 'info', format: :json
           response.body.should == rinfo

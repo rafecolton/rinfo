@@ -4,6 +4,9 @@ class RinfoController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def info
-    render json: Rinfo.inform!
+    json_data = ::MemoryCache.instance.fetch('rinfo_data') do
+      Rinfo.inform!
+    end
+    render json: json_data
   end
 end
