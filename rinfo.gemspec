@@ -8,8 +8,8 @@ require 'rinfo/version'
 Gem::Specification.new do |gem|
   gem.name            = 'rinfo'
   gem.version         = Rinfo::VERSION
-  gem.authors         = ['Rafe Colton']
-  gem.email           = ['r.colton@modcloth.com']
+  gem.authors         = ['Rafe Colton', 'Nick Rowe']
+  gem.email           = ['rafael.colton@gmail.com', 'n.rowe@modcloth.com']
   gem.homepage        = 'https://github.com/rafecolton/rinfo'
   gem.summary         = 'Generates an rinfo.json page for your Rails app'
   gem.description     = 'Generates an rinfo.json page for your Rails app'
